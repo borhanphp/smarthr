@@ -52,7 +52,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#0B0F1F] min-h-screen">
+    <div className="bg-[#0B0F1F] min-h-screen px-0 sm:px-0 lg:px-0">
      
 
     <div className="" style={{
@@ -65,7 +65,7 @@ export default function Home() {
       <section className="text-center px-6 relative">
       <div className="pt-10 pb-16 ">
            {/* Navbar */}
-      <nav className="flex w-[1200px] h-[100px] justify-between items-center p-6 max-w-7xl mx-auto bg-[#121d35] rounded-lg">
+      <nav className="flex w-full h-[100px] justify-between items-center p-6 max-w-7xl mx-auto bg-[#121d35] rounded-lg">
         <div className="text-2xl font-bold text-blue-400">
           <img src="/mainlogo.png" className="w-[220px] h-[140px]"/>
         </div>
@@ -106,8 +106,8 @@ export default function Home() {
             Contact Us
           </a>
         </div>
-        <button className="bg-[#139FDD] w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
-          Get Stated
+        <button className="bg-[#139FDD] w-full md:w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
+          Get Started
         </button>
       </nav>
       </div>
@@ -115,16 +115,16 @@ export default function Home() {
 
 
 
-        <h1 className="text-[56px] md:text-5xl font-bold leading-tight text-white">
+        <h1 className="text-[32px] md:text-[56px] font-bold leading-tight text-white text-center">
           Smart HR Management – <br />{" "}
           <span className="">Simplify, Automate, Succeed!</span>
         </h1>
-        <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-300">
+        <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-300 text-center">
           Effortless employee management with advanced automation, seamless
           payroll processing, and real-time performance tracking – all in one
           powerful platform to streamline your HR operations!
         </p>
-        <button className="mt-6 w-[220px] text-[#2757BE] h-[56px] bg-white text-[18px] px-6 py-3 rounded-md font-bold hover:bg-gray-200">
+        <button className="mt-6 w-full md:w-[220px] text-[#2757BE] h-[56px] bg-white text-[18px] px-6 py-3 rounded-md font-bold hover:bg-gray-200">
           Signup Now
         </button>
         {/* Floating UI Elements */}
@@ -190,7 +190,7 @@ export default function Home() {
       {/* about us section */}
       <section id="aboutus">
         <div className="bg-white ">
-          <div className="grid grid-cols-2 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
             <div className="col-span-1">
               <img src="/Group2404.png" className="w-full h-auto" />
             </div>
@@ -277,36 +277,35 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-white py-6">
             <div className="container mx-auto px-4">
-              <div className="font-[600] text-[40px] mb-4 leading-tight max-w-xl mx-auto text-center">
+              <div className="font-[600] text-[32px] md:text-[40px] mb-4 leading-tight max-w-xl mx-auto text-center">
                 Our HR Management Packages
               </div>
               <div className="text-center">
-                {" "}
                 Flexible HR Solutions Tailored to Your Business Needs
               </div>
 
-              <div className="mt-4 flex justify-center space-x-4 bg-[#FFFFFF] ">
-                <div className="border mt-5">
-                <button
-                  className={`rounded-none w-[130px] h-[44px] text-[16px] font-[600] ${
-                    isMonthly
-                      ? "bg-[#2757BE] text-white"
-                      : "bg-white text-black"
-                  }`}
-                  onClick={() => setIsMonthly(true)}
-                >
-                  Monthly
-                </button>
-                <button
-                  className={`rounded-none w-[130px] h-[44px] text-[16px] font-[600] ${
-                    !isMonthly
-                      ? "bg-[#2757BE] text-white"
-                      : "bg-white text-black"
-                  }`}
-                  onClick={() => setIsMonthly(false)}
-                >
-                  Yearly
-                </button>
+              <div className="mt-4 flex flex-col md:flex-row justify-center space-x-0 md:space-x-4">
+                <div className="border mt-5 w-full md:w-auto">
+                  <button
+                    className={`rounded-none w-full h-[44px] text-[16px] font-[600] ${
+                      isMonthly
+                        ? "bg-[#2757BE] text-white"
+                        : "bg-white text-black"
+                    }`}
+                    onClick={() => setIsMonthly(true)}
+                  >
+                    Monthly
+                  </button>
+                  <button
+                    className={`rounded-none w-full h-[44px] text-[16px] font-[600] ${
+                      !isMonthly
+                        ? "bg-[#2757BE] text-white"
+                        : "bg-white text-black"
+                    }`}
+                    onClick={() => setIsMonthly(false)}
+                  >
+                    Yearly
+                  </button>
                 </div>
               </div>
 
@@ -315,7 +314,7 @@ export default function Home() {
           </div>
 
           <div className="container mx-auto px-10 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {packages.map((pkg, index) => (
                 <PackageCard key={index} {...pkg} />
               ))}
@@ -448,8 +447,8 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="bg-[#000f2f] text-white py-20 px-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
+      <footer className="bg-[#000f2f] text-white py-20 px-4 sm:px-6 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="mt-[-36px]">
             <div className="">
               <img src="/mainlogo.png" className="w-[120] h-[75px]"/>
