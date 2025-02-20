@@ -288,7 +288,7 @@ export default function Home() {
               <div className="mt-4 flex justify-center space-x-4 bg-[#FFFFFF] ">
                 <div className="border mt-5">
                 <button
-                  className={`rounded-none w-[130px] h-[44] text-[16px] font-[600] ${
+                  className={`rounded-none w-[130px] h-[44px] text-[16px] font-[600] ${
                     isMonthly
                       ? "bg-[#2757BE] text-white"
                       : "bg-white text-black"
@@ -298,7 +298,7 @@ export default function Home() {
                   Monthly
                 </button>
                 <button
-                  className={`rounded-none w-[130px] h-[44] text-[16px] font-[600] ${
+                  className={`rounded-none w-[130px] h-[44px] text-[16px] font-[600] ${
                     !isMonthly
                       ? "bg-[#2757BE] text-white"
                       : "bg-white text-black"
