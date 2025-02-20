@@ -73,30 +73,35 @@ export default function Home() {
           <a
             href="#features"
             className="text-white text-lg font-medium hover:text-blue-400"
+            onClick={(e) => { e.preventDefault(); document.getElementById('features').scrollIntoView({ behavior: 'smooth' }); }}
           >
             Features
           </a>
           <a
             href="#pricing"
             className="text-white text-lg font-medium hover:text-blue-400"
+            onClick={(e) => { e.preventDefault(); document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }); }}
           >
             Pricing
           </a>
           <a
             href="#blogs"
             className="text-white text-lg font-medium hover:text-blue-400"
+            onClick={(e) => { e.preventDefault(); document.getElementById('blogs').scrollIntoView({ behavior: 'smooth' }); }}
           >
             Blogs
           </a>
           <a
             href="#aboutus"
             className="text-white text-lg font-medium hover:text-blue-400"
+            onClick={(e) => { e.preventDefault(); document.getElementById('aboutus').scrollIntoView({ behavior: 'smooth' }); }}
           >
             About Us
           </a>
           <a
             href="#contact"
             className="text-white text-lg font-medium hover:text-blue-400"
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}
           >
             Contact Us
           </a>
