@@ -136,17 +136,17 @@ export default function Home() {
         <img
           src="/Chart2.png"
           alt="Analytics"
-          className="absolute right-60 top-[-30] w-60 shadow-lg rounded-lg"
+          className="absolute right-60 top-[-30px] w-60 shadow-lg rounded-lg"
         />
          <img
           src="/user.png"
           alt="User Rating"
-          className="absolute w-[204px] h-[126px] top-[-120] left-[200]  shadow-lg rounded-lg"
+          className="absolute w-[204px] h-[126px] top-[-120px] left-[200px]  shadow-lg rounded-lg"
         />
         <img
           src="/statistics.png"
           alt="Data Chart"
-          className="absolute right-20 top-[20] w-100 h-124 shadow-lg rounded-lg"
+          className="absolute right-20 top-[20px] w-100 h-124 shadow-lg rounded-lg"
         />
       </div>
     </div>
