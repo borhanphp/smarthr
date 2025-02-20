@@ -284,10 +284,10 @@ export default function Home() {
                 Flexible HR Solutions Tailored to Your Business Needs
               </div>
 
-              <div className="mt-4 flex flex-col md:flex-row justify-center space-x-0 md:space-x-4">
-                <div className="border mt-5 w-full md:w-auto">
+              {/* <div className="mt-4 flex item-center justify-center space-x-0 md:space-x-6"> */}
+                <div className="flex items-center justify-center mt-5">
                   <button
-                    className={`rounded-none w-full h-[44px] text-[16px] font-[600] ${
+                    className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
                       isMonthly
                         ? "bg-[#2757BE] text-white"
                         : "bg-white text-black"
@@ -297,7 +297,7 @@ export default function Home() {
                     Monthly
                   </button>
                   <button
-                    className={`rounded-none w-full h-[44px] text-[16px] font-[600] ${
+                    className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
                       !isMonthly
                         ? "bg-[#2757BE] text-white"
                         : "bg-white text-black"
@@ -307,7 +307,7 @@ export default function Home() {
                     Yearly
                   </button>
                 </div>
-              </div>
+              {/* </div> */}
 
 
             </div>
