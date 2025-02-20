@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [isMonthly, setIsMonthly] = useState(true);
+  const [activeTab, setActiveTab] = useState("Employee");
   const packages = [
     {
       name: "LITE",
@@ -52,136 +53,158 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#0B0F1F] min-h-screen px-0 sm:px-0 lg:px-0">
-     
-
-    <div className="" style={{
-      backgroundImage: "url('/bg1.jpg')",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center center"
-    }}>
+    <div className="min-h-screen px-0 sm:px-6 bg-white lg:px-0">
+      <div
+        className=""
+        style={{
+          backgroundImage: "url('/bg1.jpg')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+        }}
+      >
         {/* Hero Section */}
-      <section className="text-center px-6 relative">
-      <div className="pt-10 pb-16 ">
-           {/* Navbar */}
-      <nav className="flex w-full h-[100px] justify-between items-center p-6 max-w-7xl mx-auto bg-[#121d35] rounded-lg">
-        <div className="text-2xl font-bold text-blue-400">
-          <img src="/mainlogo.png" className="w-[220px] h-[140px]"/>
+        <section className="text-center px-6 relative">
+          <div className="pt-10 pb-16 ">
+            {/* Navbar */}
+            <nav className="flex w-full h-[100px] justify-between items-center p-6 max-w-7xl mx-auto bg-[#121d35] rounded-lg">
+              <div className="text-2xl font-bold text-blue-400">
+                <img src="/mainlogo.png" className="w-[220px] h-[140px]" />
+              </div>
+              <div className="space-x-6 hidden md:flex">
+                <a
+                  href="#features"
+                  className="text-white text-lg font-medium hover:text-blue-400"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("features")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Features
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-white text-lg font-medium hover:text-blue-400"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("pricing")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#blogs"
+                  className="text-white text-lg font-medium hover:text-blue-400"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("blogs")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Blogs
+                </a>
+                <a
+                  href="#aboutus"
+                  className="text-white text-lg font-medium hover:text-blue-400"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("aboutus")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  About Us
+                </a>
+                <a
+                  href="#contact"
+                  className="text-white text-lg font-medium hover:text-blue-400"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("contact")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Contact Us
+                </a>
+              </div>
+              <button className="bg-[#139FDD] w-full md:w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
+                Get Started
+              </button>
+            </nav>
+          </div>
+
+          <h1 className="text-[32px] md:text-[56px] font-bold leading-tight text-white text-center">
+            Smart HR Management – <br />{" "}
+            <span className="">Simplify, Automate, Succeed!</span>
+          </h1>
+          <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-300 text-center">
+            Effortless employee management with advanced automation, seamless
+            payroll processing, and real-time performance tracking – all in one
+            powerful platform to streamline your HR operations!
+          </p>
+          <button className="mt-6 w-full md:w-[220px] text-[#2757BE] h-[56px] bg-white text-[18px] px-6 py-3 rounded-md font-bold hover:bg-gray-200">
+            Signup Now
+          </button>
+          {/* Floating UI Elements */}
+        </section>
+
+        {/* Image Section */}
+        <div className="mt-16 flex justify-center relative">
+          <img
+            src="/image5.png"
+            alt="Dashboard Screenshot"
+            className="h-auto w-full max-w-[800px]"
+          />
+          <img
+            src="/Chart2.png"
+            alt="Analytics"
+            className="absolute right-60 top-[-30px] w-60 shadow-lg rounded-lg"
+          />
+          <img
+            src="/user.png"
+            alt="User Rating"
+            className="absolute w-[204px] h-[126px] top-[-120px] left-[200px]  shadow-lg rounded-lg"
+          />
+          <img
+            src="/statistics.png"
+            alt="Data Chart"
+            className="absolute right-20 top-[20px] w-100 h-124 shadow-lg rounded-lg"
+          />
         </div>
-        <div className="space-x-6 hidden md:flex">
-          <a
-            href="#features"
-            className="text-white text-lg font-medium hover:text-blue-400"
-            onClick={(e) => { e.preventDefault(); document.getElementById('features').scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            Features
-          </a>
-          <a
-            href="#pricing"
-            className="text-white text-lg font-medium hover:text-blue-400"
-            onClick={(e) => { e.preventDefault(); document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            Pricing
-          </a>
-          <a
-            href="#blogs"
-            className="text-white text-lg font-medium hover:text-blue-400"
-            onClick={(e) => { e.preventDefault(); document.getElementById('blogs').scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            Blogs
-          </a>
-          <a
-            href="#aboutus"
-            className="text-white text-lg font-medium hover:text-blue-400"
-            onClick={(e) => { e.preventDefault(); document.getElementById('aboutus').scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            About Us
-          </a>
-          <a
-            href="#contact"
-            className="text-white text-lg font-medium hover:text-blue-400"
-            onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            Contact Us
-          </a>
-        </div>
-        <button className="bg-[#139FDD] w-full md:w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
-          Get Started
-        </button>
-      </nav>
       </div>
-
-
-
-
-        <h1 className="text-[32px] md:text-[56px] font-bold leading-tight text-white text-center">
-          Smart HR Management – <br />{" "}
-          <span className="">Simplify, Automate, Succeed!</span>
-        </h1>
-        <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-300 text-center">
-          Effortless employee management with advanced automation, seamless
-          payroll processing, and real-time performance tracking – all in one
-          powerful platform to streamline your HR operations!
-        </p>
-        <button className="mt-6 w-full md:w-[220px] text-[#2757BE] h-[56px] bg-white text-[18px] px-6 py-3 rounded-md font-bold hover:bg-gray-200">
-          Signup Now
-        </button>
-        {/* Floating UI Elements */}
-       
-      </section>
-
-      {/* Image Section */}
-      <div className="mt-16 flex justify-center relative">
-        <img
-          src="/image5.png"
-          alt="Dashboard Screenshot"
-          className="h-auto w-full max-w-[800px]"
-        />
-        <img
-          src="/Chart2.png"
-          alt="Analytics"
-          className="absolute right-60 top-[-30px] w-60 shadow-lg rounded-lg"
-        />
-         <img
-          src="/user.png"
-          alt="User Rating"
-          className="absolute w-[204px] h-[126px] top-[-120px] left-[200px]  shadow-lg rounded-lg"
-        />
-        <img
-          src="/statistics.png"
-          alt="Data Chart"
-          className="absolute right-20 top-[20px] w-100 h-124 shadow-lg rounded-lg"
-        />
-      </div>
-    </div>
 
       {/* hr design */}
       <section>
         <div className="bg-white text-black py-12 ">
           <div className="max-w-6xl mx-auto">
-          <div className="text-center text-[24px] font-[700] text-[#132f6d]">
-            Over 50,000 teams in more than 140 countries
-            <br />
-            trust us
-          </div>
-          <div className="flex items-center gap-16 justify-center mt-5">
-            <div>
-              <img src="/waverio.png" className="w-[80%] h-auto" />
+            <div className="text-center text-[24px] font-[700] text-[#132f6d]">
+              Over 50,000 teams in more than 140 countries
+              <br />
+              trust us
             </div>
-            <div>
-              <img src="/square.png" className="w-[80%] h-auto " />
+            <div className="flex items-center gap-16 justify-center mt-5">
+              <div>
+                <img src="/waverio.png" className="w-[80%] h-auto" />
+              </div>
+              <div>
+                <img src="/square.png" className="w-[80%] h-auto " />
+              </div>
+              <div>
+                <img src="/martino.png" className="w-[80%] h-auto " />
+              </div>
+              <div>
+                <img src="/virogan.png" className="w-[80%] h-auto " />
+              </div>
+              <div>
+                <img src="/vertex.png" className="w-[80%] h-auto " />
+              </div>
             </div>
-            <div>
-              <img src="/martino.png" className="w-[80%] h-auto " />
-            </div>
-            <div>
-              <img src="/virogan.png" className="w-[80%] h-auto " />
-            </div>
-            <div>
-              <img src="/vertex.png" className="w-[80%] h-auto " />
-            </div>
-          </div>
           </div>
         </div>
       </section>
@@ -233,40 +256,159 @@ export default function Home() {
             From hiring to payroll, streamline every HR process with our smart
             and intuitive tools.
           </div>
-          <div className="grid grid-cols-2 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 grid-cols-1 max-w-6xl mx-auto">
             <div className="col-span-1 py-12">
               <div className="flex items-center gap-10 mb-6">
-                <div className="font-[500] text-[24] cursor-pointer border-b-2 border-blue-500 text-blue-500">
+                <div
+                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                    activeTab === "Employee"
+                      ? "border-blue-500 text-blue-500"
+                      : "border-transparent"
+                  }`}
+                  onClick={() => setActiveTab("Employee")}
+                >
                   Employee
                 </div>
-                <div className="font-[500] text-[24] cursor-pointer hover:border-b-2 hover:border-blue-500">
+                <div
+                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                    activeTab === "Attendance"
+                      ? "border-blue-500 text-blue-500"
+                      : "border-transparent"
+                  }`}
+                  onClick={() => setActiveTab("Attendance")}
+                >
                   Attendance
                 </div>
-                <div className="font-[500] text-[24] cursor-pointer hover:border-b-2 hover:border-blue-500">
+                <div
+                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                    activeTab === "Leaves"
+                      ? "border-blue-500 text-blue-500"
+                      : "border-transparent"
+                  }`}
+                  onClick={() => setActiveTab("Leaves")}
+                >
                   Leaves
                 </div>
-                <div className="font-[500] text-[24] cursor-pointer hover:border-b-2 hover:border-blue-500">
+                <div
+                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                    activeTab === "Schedules"
+                      ? "border-blue-500 text-blue-500"
+                      : "border-transparent"
+                  }`}
+                  onClick={() => setActiveTab("Schedules")}
+                >
                   Schedules
                 </div>
               </div>
-              <div className="font-[500] text-[40px] mb-4 leading-tight">
-                Smart{" "}
-                <span className="text-[#2757BE]">Employee Management </span> for
-                a Streamlined Workforce
-              </div>
+
               <div className="text-[18px] font-[400] mb-4 leading-relaxed">
-                Effortlessly manage your team with our powerful employee
-                management system. Keep all employee records organized, track
-                roles and responsibilities, and simplify HR operations in one
-                centralized platform. From onboarding new hires to managing
-                performance and payroll, our solution ensures a seamless
-                experience for both HR teams and employees. Reduce paperwork,
-                enhance productivity, and focus on growing your business with an
-                efficient workforce.
+                {activeTab === "Employee" && (
+                  <>
+                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                      Smart{" "}
+                      <span className="text-[#2757BE]">
+                        Employee Management{" "}
+                      </span>{" "}
+                      for a Streamlined Workforce
+                    </div>
+                    <p>
+                      Effortlessly manage your team with our powerful employee
+                      management system. Keep all employee records organized,
+                      track roles and responsibilities, and simplify HR
+                      operations in one centralized platform. From onboarding
+                      new hires to managing performance and payroll, our
+                      solution ensures a seamless experience for both HR teams
+                      and employees. Reduce paperwork, enhance productivity, and
+                      focus on growing your business with an efficient
+                      workforce.
+                    </p>
+                  </>
+                )}
+                {activeTab === "Attendance" && (
+                  <>
+                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                      Smart{" "}
+                      <span className="text-[#2757BE]">Attendence System </span>
+                    </div>
+                    <p>
+                      Donec ac erat orci. Ut eget suscipit nisl, et blandit
+                      nisl. Fusce quis eros sed mauris lobortis iaculis. Morbi
+                      tellus magna, mattis vel quam non, sagittis pellentesque
+                      turpis. Sed malesuada, augue id dictum lobortis, nisi
+                      dolor finibus neque, non commodo quam leo ac magna.
+                      Curabitur et lacinia ex. Fusce ultricies tincidunt
+                      bibendum. Vestibulum tempor consequat lacus. Sed et
+                      pharetra massa. Nam nec fermentum massa. Sed luctus vitae
+                      enim ut ullamcorper. Sed eu nunc faucibus, maximus ex
+                      quis, eleifend orci. Ut a mattis nisl, in efficitur
+                      lectus. Nam bibendum ultricies ipsum non laoreet. Integer
+                      fermentum dolor leo, et condimentum elit luctus id.
+                    </p>
+                  </>
+                )}
+                {activeTab === "Leaves" && (
+                  <>
+                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                      Smart{" "}
+                      <span className="text-[#2757BE]">Leave Calculation </span>
+                    </div>
+                    <p>
+                      Phasellus egestas felis ac magna consequat, eu scelerisque
+                      libero sagittis. Proin ornare, nisi varius pellentesque
+                      condimentum, elit metus pretium ligula, non vestibulum
+                      felis risus vitae nibh. Proin in velit rutrum, pretium
+                      justo ac, volutpat orci. Morbi vehicula ipsum fermentum,
+                      auctor nisi eu, volutpat dolor. Phasellus id arcu ut lorem
+                      convallis vestibulum id vel enim. Morbi ullamcorper
+                      molestie lectus. Suspendisse porta magna nec tellus
+                      luctus, vel mollis enim pellentesque. Nunc gravida et arcu
+                      at posuere. Integer quis mi iaculis, gravida sem a,
+                      placerat nibh. Sed in congue tellus.
+                    </p>
+                  </>
+                )}
+                {activeTab === "Schedules" && (
+                  <>
+                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                      Smart{" "}
+                      <span className="text-[#2757BE]">Schedules System </span>
+                    </div>
+                    <p>
+                      Vivamus mattis dui ipsum, a vestibulum risus ullamcorper
+                      a. Integer sagittis auctor lacus ut scelerisque. Sed
+                      fringilla eros in faucibus pulvinar. Proin ut molestie
+                      velit. Nulla vehicula congue neque non viverra. Aliquam
+                      interdum libero ut odio vehicula aliquet. Etiam efficitur
+                      ante vel dolor bibendum tempus. Nulla mattis blandit
+                      porttitor. Phasellus suscipit, lacus et aliquam posuere,
+                      nisi augue commodo lectus, at interdum urna ante a ligula.
+                      Mauris iaculis maximus consequat.
+                    </p>
+                  </>
+                )}
               </div>
             </div>
             <div className="col-span-1">
-              <img src="/Card.png" className="w-full h-auto" />
+              {activeTab === "Employee" && (
+                  <>
+                    <img src="/Card.png" className="w-full h-auto" />
+                  </>
+                )}
+                {activeTab === "Attendance" && (
+                  <>
+                    <img src="/attendence.png" className="w-full h-auto mt-20 justify-center" />
+                  </>
+                )}
+                {activeTab === "Leaves" && (
+                  <>
+                    <img src="/leave.png" className="w-full h-auto" />
+                  </>
+                )}
+                {activeTab === "Schedules" && (
+                  <>
+                    <img src="/schedule.jpeg" className="w-full h-auto" />
+                  </>
+                )}
             </div>
           </div>
         </div>
@@ -285,31 +427,29 @@ export default function Home() {
               </div>
 
               {/* <div className="mt-4 flex item-center justify-center space-x-0 md:space-x-6"> */}
-                <div className="flex items-center justify-center mt-5">
-                  <button
-                    className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
-                      isMonthly
-                        ? "bg-[#2757BE] text-white"
-                        : "bg-white text-black"
-                    }`}
-                    onClick={() => setIsMonthly(true)}
-                  >
-                    Monthly
-                  </button>
-                  <button
-                    className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
-                      !isMonthly
-                        ? "bg-[#2757BE] text-white"
-                        : "bg-white text-black"
-                    }`}
-                    onClick={() => setIsMonthly(false)}
-                  >
-                    Yearly
-                  </button>
-                </div>
+              <div className="flex items-center justify-center mt-5">
+                <button
+                  className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
+                    isMonthly
+                      ? "bg-[#2757BE] text-white"
+                      : "bg-white text-black"
+                  }`}
+                  onClick={() => setIsMonthly(true)}
+                >
+                  Monthly
+                </button>
+                <button
+                  className={`rounded-none border w-[130px] h-[44px] text-[16px] font-[600] ${
+                    !isMonthly
+                      ? "bg-[#2757BE] text-white"
+                      : "bg-white text-black"
+                  }`}
+                  onClick={() => setIsMonthly(false)}
+                >
+                  Yearly
+                </button>
+              </div>
               {/* </div> */}
-
-
             </div>
           </div>
 
@@ -323,61 +463,60 @@ export default function Home() {
         </div>
       </section>
       {/* contract section */}
-      <section 
-      id="contact" 
-      className="bg-blue-600 text-white py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center lg:items-start"
-      style={{
-        backgroundImage: "url('/BG.png')",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center"
-      }}
+      <section
+        id="contact"
+        className="bg-blue-600 text-white py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center lg:items-start"
+        style={{
+          backgroundImage: "url('/BG.png')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+        }}
       >
-
-         {/* Left Side */}
-         <div className="lg:w-1/2 space-y-6">
+        {/* Left Side */}
+        <div className="lg:w-1/2 space-y-6">
           <div className=" w-[550px] h-[600px] space-y-10">
-          <h2 className="text-[52px] font-[600]">
-            Feel free to contact us to learn more.
-          </h2>
-          <div className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="bg-blue-800 p-3 rounded-full">
-                <FaPhone className="text-white text-lg" />
+            <h2 className="text-[52px] font-[600]">
+              Feel free to contact us to learn more.
+            </h2>
+            <div className="space-y-8">
+              <div className="flex items-center space-x-4">
+                <div className="bg-blue-800 p-3 rounded-full">
+                  <FaPhone className="text-white text-lg" />
+                </div>
+                <div>
+                  <p className="font-semibold">Contact Us</p>
+                  <p className="text-gray-200">+088 (246) 642-27-10</p>
+                </div>
               </div>
-              <div>
-                <p className="font-semibold">Contact Us</p>
-                <p className="text-gray-200">+088 (246) 642-27-10</p>
+              <div className="flex items-center space-x-4">
+                <div className="bg-blue-800 p-3 rounded-full">
+                  <FaMapMarkerAlt className="text-white text-lg" />
+                </div>
+                <div>
+                  <p className="font-semibold">9675 Grant Ave.</p>
+                  <p className="text-gray-200">Chicago Heights, IL 60411</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="bg-blue-800 p-3 rounded-full">
-                <FaMapMarkerAlt className="text-white text-lg" />
-              </div>
-              <div>
-                <p className="font-semibold">9675 Grant Ave.</p>
-                <p className="text-gray-200">Chicago Heights, IL 60411</p>
+            <div className="w-[398] h-[192]">
+              <p className="text-gray-200 mt-4">
+                "We are always ready to help you with any mortgage issue. We
+                provide the only loan you need at low interest rates. You can
+                safely make a mortgage agreement with us."
+              </p>
+              <div className="flex items-center space-x-4 mt-4">
+                <img
+                  src="/Ellipse.jpg"
+                  alt="Jenny Wilson"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-semibold">Jenny Wilson</p>
+                  <p className="text-gray-200 text-sm">Director @Company</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-[398] h-[192]">
-          <p className="text-gray-200 mt-4">
-            "We are always ready to help you with any mortgage issue. We provide
-            the only loan you need at low interest rates. You can safely make a
-            mortgage agreement with us."
-          </p>
-          <div className="flex items-center space-x-4 mt-4">
-            <img
-              src="/Ellipse.jpg"
-              alt="Jenny Wilson"
-              className="w-10 h-10 rounded-full"
-            />
-            <div>
-              <p className="font-semibold">Jenny Wilson</p>
-              <p className="text-gray-200 text-sm">Director @Company</p>
-            </div>
-          </div>
-          </div>
           </div>
         </div>
 
@@ -387,71 +526,72 @@ export default function Home() {
             Contact With Us
           </h3>
           <form className="space-y-6 mt-6">
-           <div className="flex items-center gap-11 justify-center">
-           <div className="">
-              <label className="text-[14px]">Name*</label><br/>
-              <input
-                type="text"
-                placeholder=""
-                className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
-                required
-              />
+            <div className="flex items-center gap-11 justify-center">
+              <div className="">
+                <label className="text-[14px]">Name*</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder=""
+                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  required
+                />
+              </div>
+              <div className="">
+                <label className="text-[14px]">Number*</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder=""
+                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  required
+                />
+              </div>
             </div>
-            <div className="">
-              <label className="text-[14px]">Number*</label><br/>
-              <input
-                type="text"
-                placeholder=""
-                className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
-                required
-              />
+            <div className="flex items-center gap-11 justify-center">
+              <div className="">
+                <label className="text-[14px]">Email*</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder=""
+                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  required
+                />
+              </div>
+              <div className="">
+                <label className="text-[14px]">Subject</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder=""
+                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  required
+                />
+              </div>
             </div>
-           </div>
-           <div className="flex items-center gap-11 justify-center">
-           <div className="">
-              <label className="text-[14px]">Email*</label><br/>
-              <input
-                type="text"
-                placeholder=""
-                className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
-                required
-              />
-            </div>
-            <div className="">
-              <label className="text-[14px]">Subject</label><br/>
-              <input
-                type="text"
-                placeholder=""
-                className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
-                required
-              />
-            </div>
-           </div>
-           <div className="ml-2 text-center">
-              <label className="text-[14px]">Your Message</label><br/>
+            <div className="ml-2 text-center">
+              <label className="text-[14px]">Your Message</label>
+              <br />
               <textarea
-              placeholder="Your Message"
-              className="w-[600px] p-2 border border-gray-300 rounded-lg h-28"
-              required
-            ></textarea>
-            <button className="w-[600px] h-[60px] text-center justify-center text-[16px] font-[600] mt-10 bg-[#2757be] text-white py-3 rounded-md hover:bg-blue-700">
-              Send Message
-            </button>
+                placeholder="Your Message"
+                className="w-[600px] p-2 border border-gray-300 rounded-lg h-28"
+                required
+              ></textarea>
+              <button className="w-[600px] h-[60px] text-center justify-center text-[16px] font-[600] mt-10 bg-[#2757be] text-white py-3 rounded-md hover:bg-blue-700">
+                Send Message
+              </button>
             </div>
-            
-            
           </form>
         </div>
-  
       </section>
-
 
       {/* Footer */}
       <footer className="bg-[#000f2f] text-white py-20 px-4 sm:px-6 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="mt-[-36px]">
             <div className="">
-              <img src="/mainlogo.png" className="w-[120] h-[75px]"/>
+              <img src="/mainlogo.png" className="w-[120] h-[75px]" />
             </div>
             <p className="mt-4 text-gray-400">
               There are many variations of passages of Lorem the Ipsum available
