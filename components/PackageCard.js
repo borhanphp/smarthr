@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-const PackageCard = ({ name, icon, description, price, features, mostPopular }) => {
+const PackageCard = ({ name, icon, description, price, features, mostPopular, isMonthly }) => {
   return (
     <div className={`bg-white rounded-none w-[330px] h-[671px] 
       ${mostPopular ? "shadow-lg" : ""} 
@@ -17,7 +17,7 @@ const PackageCard = ({ name, icon, description, price, features, mostPopular }) 
     <p className="text-gray-600 text-[14px] font-[400] text-center mb-6">{description}</p>
     <div className="flex items-center justify-center mb-6">
       {/* <span className="text-5xl font-bold text-blue-500 mr-2">$</span> */}
-      <p className="text-[48px] font-[800] text-center text-gray-800"><span className='text-sm text-[#a09f9f]'>৳</span>{price}</p>
+      <p className="text-[48px] font-[800] text-center text-gray-800"><span className='text-sm text-[#a09f9f]'>৳</span>{isMonthly ? price : (price * 12)}</p>
     </div>
     <ul className="list-none pl-0 text-gray-600 space-y-3">
       {features.map((feature, index) => (

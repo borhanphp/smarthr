@@ -456,7 +456,7 @@ export default function Home() {
           <div className="container mx-auto px-10 py-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {packages.map((pkg, index) => (
-                <PackageCard key={index} {...pkg} />
+                <PackageCard key={index} {...pkg} isMonthly={isMonthly} />
               ))}
             </div>
           </div>
