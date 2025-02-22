@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 const PackageCard = ({ name, icon, description, price, features, mostPopular, isMonthly }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className={`bg-white rounded-none w-[330px] h-[671px] 
-      ${mostPopular ? "shadow-lg" : ""} 
-      p-8 relative`}>
+    <div 
+      className={`bg-white rounded-none w-[330px] h-[671px] 
+        p-8 relative transition duration-300 hover:shadow-lg`}
+    >
     
     {mostPopular && (
       <span className="bg-[#139FDD] text-white text-[11px] font-[700] text-center py-1 h-[26px] w-[330px] rounded-none absolute top-0 left-0 z-10">
