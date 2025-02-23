@@ -183,7 +183,7 @@ export default function Home() {
 
       {/* hr design */}
       <section>
-        <div className="bg-white text-black py-12 ">
+        <div className="bg-white text-black py-12 px-6 md:px-0">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-xl mx-auto text-[24px] font-[700] text-[#132f6d]">
               Over 50,000 teams in more than 140 countries trust us
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* about us section */}
       <section id="About Us">
-        <div className="bg-white ">
+        <div className="bg-white px-6 md:px-0">
           <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
             <div className="col-span-1 order-2 md:order-1">
               <img src="/Group2404.png" className="w-full h-auto" />
@@ -254,7 +254,7 @@ export default function Home() {
       {/* features section */}
 
       <section id="Features" className="">
-        <div className="bg-white py-12">
+        <div className="bg-white py-12 px-6 md:px-0">
           <div className="font-[600] text-[40px] mb-4 max-w-xl mx-auto text-center">
             Powerful Features for Seamless{" "}
             <span className="text-[#2757BE]">HR Management</span>
