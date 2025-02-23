@@ -11,7 +11,7 @@ const PackageCard = ({ name, icon, description, price, features, mostPopular, is
     >
     
     {mostPopular && (
-      <span className="bg-[#139FDD] text-white text-[11px] font-[700] text-center py-1 h-[26px] w-[330px] rounded-none absolute top-0 left-0 z-10">
+      <span className="bg-[#139FDD] text-white pt-[6px] text-[11px] font-[700] text-center py-1 h-[26px] w-[330px] rounded-none absolute top-0 left-0 z-10">
         MOST POPULAR
       </span>
     )}
