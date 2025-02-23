@@ -1,12 +1,14 @@
 "use client";
 import Head from "next/head";
 import PackageCard from "@/components/PackageCard";
-import { FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone, FaMapMarkerAlt, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Home() {
   const [isMonthly, setIsMonthly] = useState(true);
   const [activeTab, setActiveTab] = useState("Employee");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const packages = [
     {
       name: "LITE",
@@ -52,95 +54,96 @@ export default function Home() {
     },
   ];
 
+  const manus = [
+    { name: "Features" },
+    { name: "Pricing" },
+    { name: "Blogs" },
+    { name: "About Us" },
+    { name: "Contact Us" },
+  ];
+
   return (
-    <div className="min-h-screen px-0 sm:px-6 bg-white lg:px-0">
+    <div className="min-h-screen px-0 sm:px-6 bg-white lg:px-0 overflow-x-hidden">
       <div
-        className=""
-        style={{
-          backgroundImage: "url('/bg1.jpg')",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-        }}
+        className="relative w-full min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/bg1.jpg')" }}
       >
         {/* Hero Section */}
-        <section className="text-center px-6 relative">
-          <div className="pt-10 pb-16 ">
+        <section className="text-center px-6 relative max-w-7xl mx-auto">
+          <div className="pt-10 pb-16">
             {/* Navbar */}
             <nav className="flex w-full h-[100px] justify-between items-center p-6 max-w-7xl mx-auto bg-[#121d35] rounded-lg">
               <div className="text-2xl font-bold text-blue-400">
-                <img src="/mainlogo.png" className="w-[220px] h-[140px]" />
+                <img
+                  src="/mainlogo.png"
+                  className="w-[180px] h-[100px] md:w-[220px] md:h-[140px]"
+                  alt="Logo"
+                />
               </div>
-              <div className="space-x-6 hidden md:flex">
-                <a
-                  href="#features"
-                  className="text-white text-lg font-medium hover:text-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("features")
-                      .scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Features
-                </a>
-                <a
-                  href="#pricing"
-                  className="text-white text-lg font-medium hover:text-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("pricing")
-                      .scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Pricing
-                </a>
-                <a
-                  href="#blogs"
-                  className="text-white text-lg font-medium hover:text-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("blogs")
-                      .scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Blogs
-                </a>
-                <a
-                  href="#aboutus"
-                  className="text-white text-lg font-medium hover:text-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("aboutus")
-                      .scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  About Us
-                </a>
-                <a
-                  href="#contact"
-                  className="text-white text-lg font-medium hover:text-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("contact")
-                      .scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Contact Us
-                </a>
+
+              {/* Desktop Menu */}
+              <div className="hidden md:flex space-x-6 items-center">
+                {manus?.map((item) => (
+                  <a
+                    key={item?.name}
+                    href={`#${item?.name?.toLowerCase().replace(/\s+/g, "")}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document
+                        .getElementById(item?.name)
+                        .scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-white text-lg font-medium hover:text-blue-400"
+                  >
+                    {item?.name}
+                  </a>
+                ))}
+                {/* Desktop "Get Started" Button */}
+                <button className="bg-[#139FDD] w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
+                  Get Started
+                </button>
               </div>
-              <button className="bg-[#139FDD] w-full md:w-[220px] h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
-                Get Started
+
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden text-white text-2xl"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <FaTimes /> : <FaBars />}
               </button>
             </nav>
+
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+              <div className="md:hidden absolute top-[100px] left-0 w-full bg-[#121d35] p-6 rounded-lg z-50 flex flex-col gap-4">
+                {manus?.map(
+                  (item) => (
+                    <a
+                      key={item?.name}
+                      href={`#${item?.name?.toLowerCase().replace(/\s+/g, "")}`}
+                      className="block text-white text-lg font-medium py-2 hover:text-blue-400"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document
+                          .getElementById(item?.name)
+                          .scrollIntoView({ behavior: "smooth" });
+                          setIsMenuOpen(false);
+                      }}
+                    >
+                      {item?.name}
+                    </a>
+                  )
+                )}
+                {/* Mobile "Get Started" Button */}
+                <button className="bg-[#139FDD] w-full h-[48px] text-[18px] text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg">
+                  Get Started
+                </button>
+              </div>
+            )}
           </div>
 
           <h1 className="text-[32px] md:text-[56px] font-bold leading-tight text-white text-center">
-            Smart HR Management – <br />{" "}
+            Smart HR Management – <br />
             <span className="">Simplify, Automate, Succeed!</span>
           </h1>
           <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-300 text-center">
@@ -151,30 +154,29 @@ export default function Home() {
           <button className="mt-6 w-full md:w-[220px] text-[#2757BE] h-[56px] bg-white text-[18px] px-6 py-3 rounded-md font-bold hover:bg-gray-200">
             Signup Now
           </button>
-          {/* Floating UI Elements */}
         </section>
 
         {/* Image Section */}
-        <div className="mt-16 flex justify-center relative">
+        <div className="mt-16 flex flex-wrap justify-center relative gap-6 px-4">
           <img
             src="/image5.png"
             alt="Dashboard Screenshot"
-            className="h-auto w-full max-w-[800px]"
+            className="w-full max-w-[800px] h-auto"
           />
           <img
             src="/Chart2.png"
             alt="Analytics"
-            className="absolute right-60 top-[-30px] w-60 shadow-lg rounded-lg"
+            className="absolute hidden md:block right-10 md:right-60 top-[-30px] w-40 md:w-60 shadow-lg rounded-lg"
           />
           <img
             src="/user.png"
             alt="User Rating"
-            className="absolute w-[204px] h-[126px] top-[-120px] left-[200px]  shadow-lg rounded-lg"
+            className="absolute hidden md:block w-[150px] md:w-[204px] h-[100px] md:h-[126px] top-[-100px] left-[50px] md:left-[200px] shadow-lg rounded-lg"
           />
           <img
             src="/statistics.png"
             alt="Data Chart"
-            className="absolute right-20 top-[20px] w-100 h-124 shadow-lg rounded-lg"
+            className="absolute hidden md:block right-5 md:right-20 top-[20px] w-[80px] md:w-100 h-[100px] md:h-124 shadow-lg rounded-lg"
           />
         </div>
       </div>
@@ -183,25 +185,23 @@ export default function Home() {
       <section>
         <div className="bg-white text-black py-12 ">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center text-[24px] font-[700] text-[#132f6d]">
-              Over 50,000 teams in more than 140 countries
-              <br />
-              trust us
+            <div className="text-center max-w-xl mx-auto text-[24px] font-[700] text-[#132f6d]">
+              Over 50,000 teams in more than 140 countries trust us
             </div>
-            <div className="flex items-center gap-16 justify-center mt-5">
-              <div>
+            <div className="grid md:grid-cols-5 grid-cols-4 gap-5 mt-5 place-content-center">
+              <div className="col-span-2 md:col-span-1">
                 <img src="/waverio.png" className="w-[80%] h-auto" />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <img src="/square.png" className="w-[80%] h-auto " />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <img src="/martino.png" className="w-[80%] h-auto " />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <img src="/virogan.png" className="w-[80%] h-auto " />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <img src="/vertex.png" className="w-[80%] h-auto " />
               </div>
             </div>
@@ -211,21 +211,26 @@ export default function Home() {
       <div className="border"></div>
 
       {/* about us section */}
-      <section id="aboutus">
+      <section id="About Us">
         <div className="bg-white ">
           <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
-            <div className="col-span-1">
+            <div className="col-span-1 order-2 md:order-1">
               <img src="/Group2404.png" className="w-full h-auto" />
             </div>
-            <div className="col-span-1 py-12">
-              <button className="rounded-full bg-[#eaeff9] text-center w-[240px] h-[48px] font-[500] mb-4">
-                <span className="text-[18px] font-[500] text-[#2757BE]">
-                  About Us
-                </span>
-              </button>
-              <div className="font-[600] text-[40px] mb-4 leading-tight">
-                Effortless <span className="text-[#2757BE]">HR Management</span>{" "}
-                for a Smarter Workforce
+            <div className="col-span-1 py-12 order-1 md:order-2">
+              <div className="flex justify-center md:justify-start">
+                <button className="rounded-full bg-[#eaeff9] text-center w-[240px] h-[48px] font-[500] mb-4">
+                  <span className="text-[18px] font-[500] text-[#2757BE]">
+                    About Us
+                  </span>
+                </button>
+              </div>
+              <div className="flex justify-center">
+                <div className="font-[600] text-[40px] mb-4 leading-tight">
+                  Effortless{" "}
+                  <span className="text-[#2757BE]">HR Management </span> for a
+                  Smarter Workforce
+                </div>
               </div>
               <div className="text-[18px] font-[400] mb-4 leading-relaxed">
                 Simplify your HR processes with our all-in-one solution. From
@@ -234,11 +239,13 @@ export default function Home() {
                 operations, reduce manual work, and enhance productivity. Stay
                 organized, save time, and focus on what matters most your people
               </div>
-              <button className="rounded-sm bg-[#139fdd] text-center w-[240px] h-[48px] font-[500]">
-                <span className="text-[18px] font-[500] text-white">
-                  Discover More
-                </span>
-              </button>
+              <div className="flex justify-center md:justify-start">
+                <button className="rounded-sm bg-[#139fdd] text-center w-[240px] h-[48px] font-[500]">
+                  <span className="text-[18px] font-[500] text-white">
+                    Discover More
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -246,9 +253,9 @@ export default function Home() {
 
       {/* features section */}
 
-      <section id="features" className="">
+      <section id="Features" className="">
         <div className="bg-white py-12">
-          <div className="font-[600] text-[40px] mb-4 leading-tight max-w-xl mx-auto text-center">
+          <div className="font-[600] text-[40px] mb-4 max-w-xl mx-auto text-center">
             Powerful Features for Seamless{" "}
             <span className="text-[#2757BE]">HR Management</span>
           </div>
@@ -390,32 +397,35 @@ export default function Home() {
             </div>
             <div className="col-span-1">
               {activeTab === "Employee" && (
-                  <>
-                    <img src="/Card.png" className="w-full h-auto" />
-                  </>
-                )}
-                {activeTab === "Attendance" && (
-                  <>
-                    <img src="/attendence.png" className="w-full h-auto mt-20 justify-center" />
-                  </>
-                )}
-                {activeTab === "Leaves" && (
-                  <>
-                    <img src="/leave.png" className="w-full h-auto" />
-                  </>
-                )}
-                {activeTab === "Schedules" && (
-                  <>
-                    <img src="/schedule.jpeg" className="w-full h-auto" />
-                  </>
-                )}
+                <>
+                  <img src="/Card.png" className="w-full h-auto" />
+                </>
+              )}
+              {activeTab === "Attendance" && (
+                <>
+                  <img
+                    src="/attendence.png"
+                    className="w-full h-auto mt-20 justify-center"
+                  />
+                </>
+              )}
+              {activeTab === "Leaves" && (
+                <>
+                  <img src="/leave.png" className="w-full h-auto" />
+                </>
+              )}
+              {activeTab === "Schedules" && (
+                <>
+                  <img src="/schedule.jpeg" className="w-full h-auto" />
+                </>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* package section */}
-      <section className="bg-white pb-10" id="pricing">
+      <section className="bg-white pb-10" id="Pricing">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white py-6">
             <div className="container mx-auto px-4">
@@ -464,7 +474,7 @@ export default function Home() {
       </section>
       {/* contract section */}
       <section
-        id="contact"
+        id="Contact Us"
         className="bg-blue-600 text-white py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center lg:items-start"
         style={{
           backgroundImage: "url('/BG.png')",
@@ -474,9 +484,9 @@ export default function Home() {
         }}
       >
         {/* Left Side */}
-        <div className="lg:w-1/2 space-y-6">
-          <div className=" w-[550px] h-[600px] space-y-10">
-            <h2 className="text-[52px] font-[600]">
+        <div className="lg:w-1/2 w-full space-y-6">
+          <div className="max-w-lg space-y-10">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
               Feel free to contact us to learn more.
             </h2>
             <div className="space-y-8">
@@ -499,13 +509,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="w-[398] h-[192]">
-              <p className="text-gray-200 mt-4">
+            <div className="space-y-4">
+              <p className="text-gray-200">
                 "We are always ready to help you with any mortgage issue. We
                 provide the only loan you need at low interest rates. You can
                 safely make a mortgage agreement with us."
               </p>
-              <div className="flex items-center space-x-4 mt-4">
+              <div className="flex items-center space-x-4">
                 <img
                   src="/Ellipse.jpg"
                   alt="Jenny Wilson"
@@ -521,64 +531,53 @@ export default function Home() {
         </div>
 
         {/* Right Side */}
-        <div className="bg-white w-[636px] h-[599px] text-black p-8 rounded-lg shadow-lg lg:w-1/2 mt-12 lg:mt-0">
+        <div className="bg-white w-full max-w-lg text-black p-8 rounded-lg shadow-lg mt-12 lg:mt-0">
           <h3 className="text-2xl font-bold mb-6 text-center">
             Contact With Us
           </h3>
           <form className="space-y-6 mt-6">
-            <div className="flex items-center gap-11 justify-center">
-              <div className="">
-                <label className="text-[14px]">Name*</label>
-                <br />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="text-sm">Name*</label>
                 <input
                   type="text"
-                  placeholder=""
-                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  className="w-full p-2 mt-2 h-12 border border-gray-300 rounded"
                   required
                 />
               </div>
-              <div className="">
-                <label className="text-[14px]">Number*</label>
-                <br />
+              <div>
+                <label className="text-sm">Number*</label>
                 <input
                   type="text"
-                  placeholder=""
-                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  className="w-full p-2 mt-2 h-12 border border-gray-300 rounded"
                   required
                 />
               </div>
             </div>
-            <div className="flex items-center gap-11 justify-center">
-              <div className="">
-                <label className="text-[14px]">Email*</label>
-                <br />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="text-sm">Email*</label>
                 <input
-                  type="text"
-                  placeholder=""
-                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
+                  type="email"
+                  className="w-full p-2 mt-2 h-12 border border-gray-300 rounded"
                   required
                 />
               </div>
-              <div className="">
-                <label className="text-[14px]">Subject</label>
-                <br />
+              <div>
+                <label className="text-sm">Subject</label>
                 <input
                   type="text"
-                  placeholder=""
-                  className="w-[275px] p-2 mt-2 h-[50px] border border-gray-300 rounded-none"
-                  required
+                  className="w-full p-2 mt-2 h-12 border border-gray-300 rounded"
                 />
               </div>
             </div>
-            <div className="ml-2 text-center">
-              <label className="text-[14px]">Your Message</label>
-              <br />
+            <div>
+              <label className="text-sm">Your Message</label>
               <textarea
-                placeholder="Your Message"
-                className="w-[600px] p-2 border border-gray-300 rounded-lg h-28"
+                className="w-full p-2 mt-2 h-28 border border-gray-300 rounded"
                 required
               ></textarea>
-              <button className="w-[600px] h-[60px] text-center justify-center text-[16px] font-[600] mt-10 bg-[#2757be] text-white py-3 rounded-md hover:bg-blue-700">
+              <button className="w-full h-14 text-lg font-semibold mt-6 bg-blue-700 text-white rounded-md hover:bg-blue-800">
                 Send Message
               </button>
             </div>
@@ -588,10 +587,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#000f2f] text-white py-20 px-4 sm:px-6 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="mt-[-36px]">
-            <div className="">
-              <img src="/mainlogo.png" className="w-[120] h-[75px]" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <div>
+              <img src="/mainlogo.png" className="w-30 h-20" alt="Main Logo" />
             </div>
             <p className="mt-4 text-gray-400">
               There are many variations of passages of Lorem the Ipsum available
@@ -600,10 +599,10 @@ export default function Home() {
             <div className="mt-4 flex border border-gray-400 rounded-sm overflow-hidden">
               <input
                 type="text"
-                placeholder=""
-                className="px-4 py-2 w-full bg-white text-white focus:outline-none"
+                placeholder="Enter your email"
+                className="px-4 py-2 w-full bg-white text-black focus:outline-none"
               />
-              <button className="bg-[#2757be] px-6 font-[600] w-[120px] text-[14px] h-[40px] text-white">
+              <button className="bg-[#2757be] px-6 font-semibold w-[120px] text-sm h-[40px] text-white">
                 Subscribe
               </button>
             </div>
@@ -613,7 +612,7 @@ export default function Home() {
             <ul className="text-gray-400 space-y-2">
               <li>Incident Responder</li>
               <li>Secure Managed IT</li>
-              <li>Check website Url</li>
+              <li>Check website URL</li>
               <li>Locker Security</li>
             </ul>
           </div>
@@ -621,7 +620,7 @@ export default function Home() {
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <ul className="text-gray-400 space-y-2">
               <li>Payment Plans</li>
-              <li>Make saving More</li>
+              <li>Make Saving More</li>
               <li>Tax Calculator</li>
               <li>Talk To Us</li>
             </ul>
