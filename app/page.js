@@ -226,13 +226,13 @@ export default function Home() {
                 </button>
               </div>
               <div className="flex justify-center">
-                <div className="font-[600] text-[40px] mb-4 leading-tight">
+                <div className="font-[600] text-[40px] mb-4">
                   Effortless{" "}
                   <span className="text-[#2757BE]">HR Management </span> for a
                   Smarter Workforce
                 </div>
               </div>
-              <div className="text-[18px] font-[400] mb-4 leading-relaxed">
+              <div className="text-[18px] text-black font-[400] mb-4 leading-relaxed">
                 Simplify your HR processes with our all-in-one solution. From
                 employee onboarding to payroll, performance tracking, and
                 compliance management our platform helps you streamline
