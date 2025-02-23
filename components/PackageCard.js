@@ -34,7 +34,7 @@ const PackageCard = ({ name, icon, description, price, features, mostPopular, is
         </li>
       ))}
     </ul>
-    <button className={`${mostPopular ? "bg-[#2757BE]" : "bg-[#f4f4f5]" } h-[55px] w-[249px]  ${mostPopular ? "text-white" : "btext-black" }  font-[700] text-[16px] py-3 px-6 rounded-none mt-8 transition duration-300`}>
+    <button className={`${mostPopular ? "bg-[#2757BE]" : "bg-[#f4f4f5]" } text-black h-[55px] w-[249px]  ${mostPopular ? "text-white" : "btext-black" }  font-[700] text-[16px] py-3 px-6 rounded-none mt-8 transition duration-300`}>
       Get Started
     </button>
   </div>

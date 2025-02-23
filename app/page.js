@@ -226,7 +226,7 @@ export default function Home() {
                 </button>
               </div>
               <div className="flex justify-center">
-                <div className="font-[600] text-[40px] mb-4">
+                <div className="font-[600] text-[40px] text-black mb-4">
                   Effortless{" "}
                   <span className="text-[#2757BE]">HR Management </span> for a
                   Smarter Workforce
@@ -255,11 +255,11 @@ export default function Home() {
 
       <section id="Features" className="">
         <div className="bg-white py-12 px-6 md:px-0">
-          <div className="font-[600] text-[40px] mb-4 max-w-xl mx-auto text-center">
+          <div className="font-[600] text-black text-[40px] mb-4 max-w-xl mx-auto text-center">
             Powerful Features for Seamless{" "}
             <span className="text-[#2757BE]">HR Management</span>
           </div>
-          <div className="text-center">
+          <div className="text-center text-black">
             From hiring to payroll, streamline every HR process with our smart
             and intuitive tools.
           </div>
@@ -267,7 +267,7 @@ export default function Home() {
             <div className="col-span-1 py-12">
               <div className="flex items-center gap-10 mb-6">
                 <div
-                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                  className={`font-[500] text-black text-[24] cursor-pointer border-b-2 ${
                     activeTab === "Employee"
                       ? "border-blue-500 text-blue-500"
                       : "border-transparent"
@@ -277,7 +277,7 @@ export default function Home() {
                   Employee
                 </div>
                 <div
-                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                  className={`font-[500] text-black text-[24] cursor-pointer border-b-2 ${
                     activeTab === "Attendance"
                       ? "border-blue-500 text-blue-500"
                       : "border-transparent"
@@ -287,7 +287,7 @@ export default function Home() {
                   Attendance
                 </div>
                 <div
-                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                  className={`font-[500] text-black text-[24] cursor-pointer border-b-2 ${
                     activeTab === "Leaves"
                       ? "border-blue-500 text-blue-500"
                       : "border-transparent"
@@ -297,7 +297,7 @@ export default function Home() {
                   Leaves
                 </div>
                 <div
-                  className={`font-[500] text-[24] cursor-pointer border-b-2 ${
+                  className={`font-[500] text-black text-[24] cursor-pointer border-b-2 ${
                     activeTab === "Schedules"
                       ? "border-blue-500 text-blue-500"
                       : "border-transparent"
@@ -311,14 +311,14 @@ export default function Home() {
               <div className="text-[18px] font-[400] mb-4 leading-relaxed">
                 {activeTab === "Employee" && (
                   <>
-                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                    <div className="font-[500] text-black text-[40px] mb-4 leading-tight">
                       Smart{" "}
                       <span className="text-[#2757BE]">
                         Employee Management{" "}
                       </span>{" "}
                       for a Streamlined Workforce
                     </div>
-                    <p>
+                    <p className="text-black">
                       Effortlessly manage your team with our powerful employee
                       management system. Keep all employee records organized,
                       track roles and responsibilities, and simplify HR
@@ -333,11 +333,11 @@ export default function Home() {
                 )}
                 {activeTab === "Attendance" && (
                   <>
-                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                    <div className="font-[500] text-black text-[40px] mb-4 leading-tight">
                       Smart{" "}
                       <span className="text-[#2757BE]">Attendence System </span>
                     </div>
-                    <p>
+                    <p className="text-black">
                       Donec ac erat orci. Ut eget suscipit nisl, et blandit
                       nisl. Fusce quis eros sed mauris lobortis iaculis. Morbi
                       tellus magna, mattis vel quam non, sagittis pellentesque
@@ -355,11 +355,11 @@ export default function Home() {
                 )}
                 {activeTab === "Leaves" && (
                   <>
-                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                    <div className="font-[500] text-black text-[40px] mb-4 leading-tight">
                       Smart{" "}
                       <span className="text-[#2757BE]">Leave Calculation </span>
                     </div>
-                    <p>
+                    <p className="text-black">
                       Phasellus egestas felis ac magna consequat, eu scelerisque
                       libero sagittis. Proin ornare, nisi varius pellentesque
                       condimentum, elit metus pretium ligula, non vestibulum
@@ -376,11 +376,11 @@ export default function Home() {
                 )}
                 {activeTab === "Schedules" && (
                   <>
-                    <div className="font-[500] text-[40px] mb-4 leading-tight">
+                    <div className="font-[500] text-black text-[40px] mb-4 leading-tight">
                       Smart{" "}
                       <span className="text-[#2757BE]">Schedules System </span>
                     </div>
-                    <p>
+                    <p className="text-black">
                       Vivamus mattis dui ipsum, a vestibulum risus ullamcorper
                       a. Integer sagittis auctor lacus ut scelerisque. Sed
                       fringilla eros in faucibus pulvinar. Proin ut molestie
@@ -429,10 +429,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-white py-6">
             <div className="container mx-auto px-4">
-              <div className="font-[600] text-[32px] md:text-[40px] mb-4 leading-tight max-w-xl mx-auto text-center">
+              <div className="font-[600] text-black text-[32px] md:text-[40px] mb-4 leading-tight max-w-xl mx-auto text-center">
                 Our HR Management Packages
               </div>
-              <div className="text-center">
+              <div className="text-center text-black">
                 Flexible HR Solutions Tailored to Your Business Needs
               </div>
 
